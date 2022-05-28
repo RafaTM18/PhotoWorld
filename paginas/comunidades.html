@@ -1,0 +1,61 @@
+<html>
+    <script type="text/javascript" src="./scripts/getComunidadeDiv.js"></script>
+    <script type="text/javascript" src="./scripts/getComunidades.js"></script>
+    <script type="text/javascript" src="./scripts/novaComunidade.js"></script>
+    <div class="row d-flex mt-3 p-1 justify-content-center  ">
+        <div class="container-md bg-gray-100 shadow">
+            <div class=" row">    
+                <h4 class="mb-1">Econtre Novas Comunidades ou <a id ='novaComunidade' class="fas fa-plus text-primary " href="#"> Adicione uma nova!</a></h3>
+            </div>
+        
+            <div class ="row my-3" id ='listaComunidades'>
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="novaComunidadeModal" tabindex="-1" role="dialog" aria-labelledby="Nova Comunidade" aria-hidden="true" style = "max-width: 80%; margin:auto auto !important;">
+        <div class="modal-dialog modal-md" style = ' overflow-y: initial !important' role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" > Nova Comunidade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style = ' overflow-y: auto !important'>
+                    <form id="formComunidades" class="row d-flex flex-column justify-content-center align-items-center">
+                           <div class='col-md-9'>				
+                            <dt class="col-md-4">Nome da Comunidade:</dt>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Nome da Comunidade' id='nome' name='nome'></input></dd>
+                            <dt class="col-md-4">Descrição da Comunidade:</dt>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Nome da Comunidade' id='desc' name='desc'></input></dd>
+                        </div>
+                        <p  class="col-auto text-primary rp-3" >
+                            
+                            <i id='btnSalvarDados' class="btn btn-primary fas fa-save  "> Salvar </i>
+                            
+                        </p>
+                        <span class="mt-2" id="result">
+
+                        </span>
+                    
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+         window.onload = getComunidades(document.getElementById("listaComunidades"));
+         document.getElementById('novaComunidade').addEventListener("click", function(event){
+                $('#novaComunidadeModal').modal('show');	
+        });
+        document.getElementById('btnSalvarDados').addEventListener("click", function(event){
+            console.log(JSON.parse(localStorage.getItem("auth")).id);
+            //document.getElementById("id").value = JSON.parse(localStorage.getItem("auth")).id;
+            alert(novaComunidade(new FormData(document.getElementById("formComunidades"))));
+        });
+
+    </script>
+</html>

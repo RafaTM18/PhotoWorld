@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>fotoWorld - Login</title>
+    
+    <script type="text/javascript" src="../scripts/jquery-3.6.0.min.js"></script>
+   
+    <link href="../bibliotecas/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    
+    <link href="../styles/bootstrap.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Cadastrar!</h1>
+                            </div>
+                            <form class="user" id="formCadastro" enctype="multipart/form-data">
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-1">
+                                        <input type="text" class="form-control form-control-user" id="usuario" name="username"
+                                            placeholder="Usuário (Utilizado para fazer o login)", required>
+                                    </div>
+                                    <div class="col-sm-12  mb-3 mb-sm-1">
+                                        <input type="text" class="form-control form-control-user" id="apelido"
+                                            placeholder="Seu Nome" id="nome" name="nome" required>
+                                    </div>
+                                    <div class="col-sm-12 mb-3 mb-sm-1">
+                                        <input type="datetime" class="form-control form-control-user" id="dataNascimento"
+                                            placeholder="Data Nascimento", name="dtNasc"required>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="arquivo"  class="form-label" > Selecione uma foto de perfil </label>
+                                        <input type="file" class="btn btn-primary" name='img' id="img">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="senha" name='password' placeholder="Senha" required> 
+                                    </div>
+                                    
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user"
+                                            id="repitaSenha" placeholder="Repita a senha" required>
+                                    </div>
+                                </div>
+                                <button id = "btnCadastrar"  class="btn btn-primary btn-user btn-block">
+                                    Cadastrar
+                                </button>
+                                <hr>
+                                <p id="mensagem" class="text-gray-500 text-center"></p>
+                                <script type="text/javascript" src="../scripts/realizarCadastro.js"></script>
+                                <script>
+                                    document.getElementById("btnCadastrar").addEventListener("click", function(event){
+                                        event.preventDefault();
+                                        /*var usuarioValue= document.getElementById("usuario").value;
+                                        var apelidoValue = document.getElementById("apelido").value;
+                                        var dataNascimentoValue = document.getElementById("dataNascimento").value; 
+                                        var senhaValue = document.getElementById("senha").value; 
+                                        var resposta = realizarCadastro(usuarioValue,apelidoValue,dataNascimentoValue, senhaValue);
+                                        document.getElementById("mensagem").innerText = resposta;*/
+                                        var resposta = realizarCadastro(new FormData(document.getElementById("formCadastro")));
+                                        document.getElementById("mensagem").innerText = resposta
+                                    });
+                                </script>
+                            </form>
+                            <hr>
+                            
+                            <div class="text-center">
+                                <a class="small" href="login.html">Já possui uma conta? Faça o Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+  
+</body>
+
+</html>

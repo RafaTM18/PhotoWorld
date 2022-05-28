@@ -1,0 +1,86 @@
+<html>
+    <script type="text/javascript" src="./scripts/getLugarDiv.js"> </script>
+    <script type="text/javascript" src="./scripts/getLugares.js"> </script>
+    <script type="text/javascript" src="./scripts/novoLugar.js"></script>
+    <div class="row d-flex mt-3 p-1 justify-content-center  ">
+        <div class="container-md bg-gray-100 shadow">
+            <div class=" row">    
+                <h4 class="mb-1">Econtre Novos Lugares ou <a id ='novoLugar' class="fas fa-plus text-primary " href="#"> Adicione um novo!</a></h3>
+            </div>
+        
+            <div class ="row my-3" id ='listaLugares'>
+                <div class = 'col-sm-4'>
+                    <div class="card shadow mb-2">
+                        <div class="card-header py-2">
+                            <h6 class="m-0 font-weight-bold text-primary" name='lugar'>Serra do Rio Rastro - Manual</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="text-center col-sm-12">
+                                <img class="img-fluid px-0 px-sm-1 mt-1 mb-1" style="width: 100%"
+                                    src="./imgs/canoa_furada.jpg" alt="...">
+                            </div>
+                            <div class = "col-sm-12 center text-center">
+                                
+                                <a id='linkMapa' target="_blank"  href="https://google.com.br/">Ver no MAPS</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="novoLugarModal" tabindex="-1" role="dialog" aria-labelledby="Novo Lugar" aria-hidden="true" style = "max-width: 80%; margin:auto auto !important;">
+        <div class="modal-dialog modal-md" style = ' overflow-y: initial !important' role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" > Novo Lugar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style = ' overflow-y: auto !important'>
+                    <form id ='novoLugarForm' class="row d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
+                           <div class='col-md-9'>				
+                            <dt class="col-md-4">Nome do Lugar:</dt>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Nome do Lugar' id='nome' name="nome"></input></dd>
+                            <dt class="col-md-4">Descrição do Lugar:</dt>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Descrição do Lugar' id='desc' name="desc"></input></dd>
+                            <dt class="col-md-4">Localização:</dt>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Coloque a localização do Google para todos acharem ' id='lugar' name="local"></input></dd>
+                            <div class="form-group" style="display: none; visibility: hidden;"><input type="text" class="form-control form-control-user" id="id" name="id" > </div>
+                            <dt class="col-md-4">Foto:</dt>
+                            
+                            <dd class="col-md-12" ><input type='file' class="form-control" placeholder='Escolha uma foto bem bacana desse lugar ' id='img' name='img'></input></dd>
+                            <!--
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Descrição do Lugar' id="img" name="img"></input></dd>
+                            -->
+                        </div>
+                        <p  class="col-auto text-primary rp-3" >
+                            
+                            <i id='btnSalvarDados' class="btn btn-primary fas fa-save  "> Salvar </i>
+                            
+                        </p>
+                        <span class="mt-2" id="result">
+
+                        </span>
+                    
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+         window.onload = getLugares(document.getElementById("listaLugares"));
+         document.getElementById('novoLugar').addEventListener("click", function(event){
+                $('#novoLugarModal').modal('show');	
+        });
+        document.getElementById('btnSalvarDados').addEventListener("click", function(event){
+            console.log(JSON.parse(localStorage.getItem("auth")).id);
+            document.getElementById("id").value = JSON.parse(localStorage.getItem("auth")).id;
+            alert(novoLugar(new FormData(document.getElementById("novoLugarForm"))));
+        });
+    </script>
+</html>

@@ -1,0 +1,42 @@
+
+    
+     <div class="row d-flex mt-3 p-1 justify-content-center  ">
+        <form  id = 'form' class="user col-md-6" enctype="multipart/form-data">
+            
+            <div class="col-md-12 mt-3 p-1 d-flex flex-column">
+                <div class="form-group" style="display: none; visibility: hidden;">
+                    <input type="text" class="form-control form-control-user" id="id" name="id" > 
+                    <input type="text" class="form-control form-control-user" id="idAutor" name="id_autor">
+                    <input type="text" class="form-control form-control-user" id="likes" name="likes">
+                    <!--<input type="text" class="form-control form-control-user" id="idAutor" name="idLocal"> -->
+                </div>
+                <label for="arquivo"  class="form-label" > Selecione o arquivo</label>
+                <!--<input type="text" class="form-control form-control-user" id="img" name="img"> -->
+			   <input type="file" class="btn btn-primary" name='img' id="img">
+            </div>
+
+            <div class="col-md-12 mt-3 p-1">
+                <input type="text" class="form-control " id="idLugar" name="local" placeholder="Localização">
+            </div>
+            <div class="col-md-12 mt-3 p-0">
+                <textarea class="form-control " id="desc" name="desc">         
+                </textarea>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center align-items-center mt-2">
+                <button id="btnPublicar" class="btn btn-primary"placeholder="Localização"> Salvar </button>
+            </div>
+        </form>
+        <script type="text/javascript" src="./scripts/novaPublicacao.js"></script>
+        <script>
+            document.getElementById("btnPublicar").addEventListener("click", function(event){
+                event.preventDefault();
+                //document.getElementById("id").value = Math.floor(Math.random() * 100); //Terrivelmente provisório    
+                //document.getElementById("idAutor").value =  JSON.parse(localStorage.getItem("auth")).id;
+                document.getElementById("idAutor").value = JSON.parse(localStorage.getItem("auth")).id;
+                document.getElementById("likes").value = 0;
+                console.log(document.getElementById("id").value + " - " + document.getElementById("idAutor").value );
+                //document.getElementById("idLocal").value = 1; //Precisamos adicionar um buscar pelo Nome;
+                alert(novaPublicacao(new FormData(document.getElementById('form'))));
+            });
+        </script>
+    </div>

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="styles/bootstrap.css" rel="stylesheet">
+        <link href="./bibliotecas/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <title>
+            photoWorld
+        </title>
+       
+        <script type="text/javascript" src="scripts/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="scripts/verificaLogin.js?12831"></script>
+        <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+        <header class = 'navbar navbar-expanded-lg bg-primary py-3  px-1 justify-content-beetwen '>
+            <div class='container-lg d-flex justify-content-beetwen' >
+                <h1 class='text-light'> fotoWorld </h1>
+                <nav class="d-flex justify-content-between align-items-center" id="menu">            
+                    
+                    <a class="text-light nav-link active"  id ="mnPublicacoes" href="#publicacoes">Inico</a>
+                    <a class="text-light nav-link"  id="mnNovaPublicacao" href="#nova">Nova Publicação</a>
+                    <a class="text-light nav-link"  id="mnLugares" href="#lugar">Lugares</a>
+                    <a class="text-light nav-link"  id="mnComunidades" href="#comunidades">Comunidades</a>
+                    <a class="text-light nav-link text-decoration-none" id="mnPerfil" href="#"> Perfil</a>
+                    <a class="text-light nav-link" href="paginas/login.html" id ="mnLogin">Sair</a>
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="mt-0">
+            <h1>Main</h1>
+        </main>
+        <footer>
+            <script type="text/javascript" src="scripts/menu.js"></script>
+        </footer>
+    </body>
+    <script type="text/javascript">
+        var ativo = verificaLogin();
+        console.log(ativo);
+        console.log("AUTH: " + JSON.stringify(localStorage.getItem("auth")))
+        console.log(localStorage.getItem("auth"));
+        if(ativo == true){
+            var apelido = JSON.parse(localStorage.getItem("auth")).nome;
+            
+            const campoLogin = document.getElementById("mnPerfil");
+            campoLogin.innerText = apelido;
+        }
+        $(main).load("./paginas/publicacoes.html");
+    </script>
+</html>

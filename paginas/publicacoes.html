@@ -1,0 +1,53 @@
+<script type="text/javascript" src="./scripts/getPublicacaoDiv.js"></script>
+<script type="text/javascript" src="./scripts/getPublicacoesInicio.js"></script>
+    <div class="row d-flex mt-3 p-1 justify-content-center  ">
+        <div class="container-sm ">
+            <div class=" row">    
+                <h3>Publicações</h3>
+            </div>
+        
+            <div class ="row" id ='listaPublicacoes'>
+                <!--
+                    <div class="card shadow mb-2">
+                        <div class="card-header py-2">
+                            <h6 class="m-0 font-weight-bold text-primary" id ='autor'>Fulano</h6>
+                        </div>
+                        <div class="card-body d-flex">
+                            <div class="text-center col-sm-6">
+                                <img class="img-fluid px-2 px-sm-4 mt-2 mb-2" style="width: 35rem;"
+                                    src="./imgs/canoa_furada.jpg" alt="...">
+                            </div>
+                            <div class = "col-sm-6">
+                                <p id="descricao">A minha viagem para a serra da conoa furada foi incrivel, aprendi mais sobre as canoas furadas e canoas não furadas</p>
+                                <a id='linkMapa' target="_blank"  href="https://google.com.br/">Ver no MAPS</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class = 'col-sm-12'>
+                    <div class="card shadow mb-2">
+                        <div class="card-header py-2">
+                            <h6 class="m-0 font-weight-bold text-primary" name ='autor'>Ciclano A</h6>
+                        </div>
+                        <div class="card-body d-flex">
+                            <div class="text-center col-sm-6">
+                                <img class="img-fluid px-2 px-sm-4 mt-2 mb-2" style="width: 35rem;"
+                                    src="./imgs/rio-rastro.jpg" alt="...">
+                            </div>
+                            <div class = "col-sm-6">
+                                <p name="descricao">Meus amigos hoje completei o meu objetivo de vida: Connheci a serra do rio rastro! A serra é expetacular ficamos hospedados em um hotel rustico e aproveitamos a vista pelos diversos mirantes ao longo da rota</p>
+                                <a name='linkMapa' target="_blank"  href="https://google.com.br/">Ver no MAPS</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = getPublicacoesInicio(document.getElementById("listaPublicacoes"));
+    </script>
