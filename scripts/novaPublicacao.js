@@ -8,8 +8,14 @@ function novaPublicacao(formData){
                     processData: false,
                     contentType: false,
                     async: false
-                }).responseText;
+                })
+    if(result.status == 422){
+         return JSON.parse(result.responseText).errors[0].message;  
+    }
+                
+    ///return JSON.parse(result).erros[0].message;
+    return JSON.parse(result.responseText).message; 
         
-        return result;
+    
 
 }

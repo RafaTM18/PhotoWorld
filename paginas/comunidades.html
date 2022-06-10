@@ -28,7 +28,7 @@
                             <dt class="col-md-4">Nome da Comunidade:</dt>
                             <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Nome da Comunidade' id='nome' name='nome'></input></dd>
                             <dt class="col-md-4">Descrição da Comunidade:</dt>
-                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Nome da Comunidade' id='desc' name='desc'></input></dd>
+                            <dd class="col-md-12" ><input type='text' class="form-control" placeholder='Descrição da Comunidade' id='desc' name='desc'></input></dd>
                         </div>
                         <p  class="col-auto text-primary rp-3" >
                             
@@ -52,9 +52,10 @@
                 $('#novaComunidadeModal').modal('show');	
         });
         document.getElementById('btnSalvarDados').addEventListener("click", function(event){
-            console.log(JSON.parse(localStorage.getItem("auth")).id);
+           
             //document.getElementById("id").value = JSON.parse(localStorage.getItem("auth")).id;
-            alert(novaComunidade(new FormData(document.getElementById("formComunidades"))));
+            document.getElementById("result").innerText = novaComunidade(new FormData(document.getElementById("formComunidades")));
+            //alert(novaComunidade(new FormData(document.getElementById("formComunidades"))));
         });
 
     </script>

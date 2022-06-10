@@ -1,21 +1,26 @@
-function getPublicacaoDiv(publicao, key){
+function getPublicacaoDivPerfil(publicao, key){
     console.log("Publição: " + JSON.stringify(publicao));
-   // var id = JSON.parse(localStorage.getItem("auth")).id;
-    var id = publicao.id_autor;
+    
+    // var id = JSON.parse(localStorage.getItem("auth")).id;
+     if(publicao.id_autor != JSON.parse(localStorage.getItem("auth")).id){
+        var nullNode = document.createElement("span");
+       
+        return  nullNode;
+     }
+        
     console.log("Autor: " + id);
-    var resultNome =$.ajax({url: "https://photo-world-api2.herokuapp.com/api/user/" +id, Type:"JSON", async: false }).responseText;
-    console.log("Result Nome: " + resultNome);
-    var nomeAutor = JSON.parse(resultNome);
-    var autorText = document.createTextNode(nomeAutor.nome);
+    //var resultNome =$.ajax({url: "https://photo-world-api2.herokuapp.com/api/user/" +id , Type:"JSON", async: false }).responseText;
+    var nomeAutor = JSON.parse(localStorage.getItem("auth")).nome;
+    var autorText = document.createTextNode(nomeAutor);
     var descricaoText = document.createTextNode(publicao.desc);
     const publicacaoDiv = document.createElement("div");
-    publicacaoDiv.setAttribute("class","col-sm-12 publicacao");
+    publicacaoDiv.setAttribute("class","col-sm-4 publicacao");
     publicacaoDiv.setAttribute("name",publicao.id);
         const card = document.createElement("div");
         card.setAttribute("class","card shadow mb-2");
 
             const cardHeader = document.createElement("div");
-            cardHeader.setAttribute("class","card-header py-2");
+            cardHeader.setAttribute("class","card-header py-1");
             
                 const autor = document.createElement("h6");
                 autor.setAttribute("class","m-0 font-weight-bold text-primary");
@@ -24,18 +29,18 @@ function getPublicacaoDiv(publicao, key){
             cardHeader.appendChild(autor);
 
             const cardBody = document.createElement("div");
-            cardBody.setAttribute("class", "card-body d-flex");
+            cardBody.setAttribute("class", "card-body d-flex flex-column justify-content-center");
                 const divImg = document.createElement("div");
-                divImg.setAttribute("class", "text-center col-sm-6");
+                divImg.setAttribute("class", "text-center");
                     const imgPublicacao = document.createElement("img");
                     imgPublicacao.setAttribute("class","img-fluid px-2 px-sm-4 mt-2 mb-2");
-                    imgPublicacao.setAttribute("style","width: 35rem;");
+                    imgPublicacao.setAttribute("style","width: 45rem;");
                     imgPublicacao.setAttribute("src",publicao.img);
                     imgPublicacao.setAttribute("name","img");
                 divImg.appendChild(imgPublicacao);
                 
                 const divTexto = document.createElement("div");
-                divTexto.setAttribute("class","col-sm-6");
+                divTexto.setAttribute("class","px-3 px-sm-4");
                     
                     const descricao = document.createElement("p");
                     descricao.setAttribute("name","descricao");

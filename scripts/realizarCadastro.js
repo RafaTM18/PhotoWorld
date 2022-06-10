@@ -18,7 +18,7 @@
             async: false
         }).responseText;
     response = JSON.parse(responseText);
-    alert(responseText);
+    //alert(responseText);
 
     if(response.message != "Usuário cadastrado com sucesso!" || response == null || response.result == "0" ){
         return "Falha no cadastro, verifique seus campos!";
@@ -27,7 +27,7 @@
         window.location.assign("../paginas/login.html");
     }
 
-    return response.message;
+        return response.message;
     }
     /*Alterar de acordo com o que o back padronizar*/ 
     /*if(response.message == 0 || response == null || response.result == "0" ){

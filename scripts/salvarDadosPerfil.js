@@ -7,8 +7,12 @@ function salvarDadosPerfil(formData){
                     processData: false,
                     contentType: false,
                     async: false
-                }).responseText;
-    
-        return result;
+                })
+    if(result.status == 422){
+        return JSON.parse(result.responseText).errors[0].message;  
+    }
+                           
+    ///return JSON.parse(result).erros[0].message;
+    return JSON.parse(result.responseText).message; 
 
 }

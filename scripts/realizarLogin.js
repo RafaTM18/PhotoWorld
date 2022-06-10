@@ -18,7 +18,7 @@ function realizarLogin(loginUsuario, senhaUsuario){
     responseText = $.ajax({url: "https://photo-world-api2.herokuapp.com/api/user/"+loginUsuario, Type:"Json", method:"GET", 
             async: false}).responseText;        
     response = JSON.parse(responseText);
-    alert(responseText);
+    //alert(responseText);
     /*Alterar de acordo com o que o back padronizar*/
     if(response.result == 0 || response == null || response.result == "0" ){
         //return "Falha na autentificação tente";

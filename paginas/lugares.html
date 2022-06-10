@@ -80,7 +80,7 @@
         document.getElementById('btnSalvarDados').addEventListener("click", function(event){
             console.log(JSON.parse(localStorage.getItem("auth")).id);
             document.getElementById("id").value = JSON.parse(localStorage.getItem("auth")).id;
-            alert(novoLugar(new FormData(document.getElementById("novoLugarForm"))));
+            document.getElementById("result").innerText = novoLugar(new FormData(document.getElementById("novoLugarForm")));
         });
     </script>
 </html>

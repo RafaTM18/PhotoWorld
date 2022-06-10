@@ -1,6 +1,9 @@
 <html>
 
     <script type="text/javascript" src="./scripts/atualizarPerfil.js">  </script>
+    <script type="text/javascript" src="./scripts/getPublicacaoDivPerfil.js"></script>
+    <script type="text/javascript" src="./scripts/getPublicacoesPerfil.js"></script>
+    
     <div class="d-flex bg-gradient-info text-light justify-content-center shadow">
         <div class="container-lg row p-2 ">
             <div class="col-md-2"> 
@@ -21,10 +24,8 @@
                 <h3>Minhas Publicações</h3>
             </div>
         
-            <div class ="row">
-                <div class = 'col-md-4'> Espaço Para publicão 1</div>
-                <div class = 'col-md-4'> Espaço Para publicão 2</div>
-                <div class = 'col-md-4'> Espaço Para publicão 3</div>
+            <div class ="row" id ='listaPublicacoes'>
+                
             </div>
         </div>
     </div>
@@ -59,9 +60,7 @@
                             <i id='btnSalvarDados' class="btn btn-primary fas fa-save  "> Salvar </i>
                             
                         </p>
-                        <span class="mt-2" id="result">
-
-                        </span>
+                        <span class="mt-2" id="result"></span>
                     
                     </form>
                    
@@ -91,8 +90,10 @@
             });
             document.getElementById('btnSalvarDados').addEventListener("click", function(event){
                 document.getElementById("id").value = JSON.parse(localStorage.getItem("auth")).id;
-                alert(atualizarPerfil(new FormData(document.getElementById("formMeusDados"))));
+                //alert(atualizarPerfil(new FormData(document.getElementById("formMeusDados"))));
+                document.getElementById("result").innerText = atualizarPerfil(new FormData(document.getElementById("formMeusDados")));
             });
+            window.onload = getPublicacoesPerfil(document.getElementById("listaPublicacoes"));
         </script>
     
     </div>
